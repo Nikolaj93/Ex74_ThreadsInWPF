@@ -82,6 +82,7 @@ namespace Ex74_ThreadsInWPF
             }
             lblStatus1.Dispatcher.Invoke(() => lblStatus1.Content = "Juice Ready");
             btnBlend1.Dispatcher.Invoke(() => btnBlend1.IsEnabled = true);
+            btnClean1.Dispatcher.Invoke(() => btnClean1.IsEnabled = true);
         }
 
         private void Blend2()
@@ -96,6 +97,17 @@ namespace Ex74_ThreadsInWPF
             }
             lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = "Juice Ready");
             btnBlend2.Dispatcher.Invoke(() => btnBlend2.IsEnabled = true);
+            btnClean2.Dispatcher.Invoke(() => btnClean2.IsEnabled = true);
+        }
+        private void Clean1()
+        {
+            lblStatus1.Dispatcher.Invoke(() => lblStatus1.Content = "Cleaned");
+            btnClean1.Dispatcher.Invoke(() => btnClean1.IsEnabled = false);
+        }
+        private void Clean2()
+        {
+            lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = "Cleaned");
+            btnClean2.Dispatcher.Invoke(() => btnClean2.IsEnabled = false);
         }
     }
 }
