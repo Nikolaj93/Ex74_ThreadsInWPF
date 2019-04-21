@@ -58,6 +58,18 @@ namespace Ex74_ThreadsInWPF
             t.Start();
         }
 
+        private void BtnClean1_Click(object sender, RoutedEventArgs e)
+        {
+            Thread t = new Thread(Clean1);
+            t.Start();
+        }
+
+        private void BtnClean2_Click(object sender, RoutedEventArgs e)
+        {
+            Thread t = new Thread(Clean2);
+            t.Start();
+        }
+
         private void Blend1()
         {
             continueBlend = true;
