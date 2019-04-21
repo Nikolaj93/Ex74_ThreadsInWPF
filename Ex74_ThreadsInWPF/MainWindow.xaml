@@ -31,6 +31,7 @@
         <Button x:Name="btnBlend1" Content="Blend 1" HorizontalAlignment="Left" Margin="402,87,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="BtnBlend1_Click"/>
         <Label x:Name="lblStatus1" Content="Cleaned" HorizontalAlignment="Left" Margin="506,87,0,0" VerticalAlignment="Top" Width="80" Background="#FFFDED9E" Height="24"/>
         <Button Name="btnClean1" Content="Clean 1" IsEnabled="False" HorizontalAlignment="Left" Margin="408,126,0,0" VerticalAlignment="Top" Width="75" Click="BtnClean1_Click"/>
+        <Button Name="btnStop1" Content="Stop 1" IsEnabled="False" HorizontalAlignment="Left" Margin="408,161,0,0" VerticalAlignment="Top" Width="75" Click="BtnStop1_Click"/>
         <!-- -->
         <Button x:Name="btnPutIn2" Content="Put in 2" HorizontalAlignment="Left" Margin="170,250,0,0" VerticalAlignment="Top" Width="64" Click="BtnPutIn2_Click" Height="24"/>
         <Label Content="Blender 2:" HorizontalAlignment="Left" Margin="274,189,0,0" VerticalAlignment="Top"/>
@@ -38,5 +39,6 @@
         <Button x:Name="btnBlend2" Content="Blend 2" HorizontalAlignment="Left" Height="24" Margin="402,250,0,0" VerticalAlignment="Top" Width="81" Click="BtnBlend2_Click"/>
         <Label x:Name="lblStatus2" Content="Cleaned" HorizontalAlignment="Left" Margin="506,250,0,0" VerticalAlignment="Top" Width="80" Background="#FFFDED9E" Height="24"/>
         <Button Name="btnClean2" Content="Clean 2" IsEnabled="False" HorizontalAlignment="Left" Margin="408,290,0,0" VerticalAlignment="Top" Width="75" Click="BtnClean2_Click"/>
+        <Button Name="btnStop2" Content="Stop 2" IsEnabled="False" HorizontalAlignment="Left" Margin="408,326,0,0" VerticalAlignment="Top" Width="75" Click="BtnStop2_Click"/>
     </Grid>
 </Window>

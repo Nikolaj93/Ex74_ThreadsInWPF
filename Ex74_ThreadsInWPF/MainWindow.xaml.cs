@@ -69,6 +69,17 @@ namespace Ex74_ThreadsInWPF
             Thread t = new Thread(Clean2);
             t.Start();
         }
+        private void BtnStop1_Click(object sender, RoutedEventArgs e)
+        {
+            Thread t = new Thread(Stop1);
+            t.Start();
+        }
+
+        private void BtnStop2_Click(object sender, RoutedEventArgs e)
+        {
+            Thread t = new Thread(Stop2);
+            t.Start();
+        }
 
         private void Blend1()
         {
@@ -83,6 +94,7 @@ namespace Ex74_ThreadsInWPF
             lblStatus1.Dispatcher.Invoke(() => lblStatus1.Content = "Juice Ready");
             btnBlend1.Dispatcher.Invoke(() => btnBlend1.IsEnabled = true);
             btnClean1.Dispatcher.Invoke(() => btnClean1.IsEnabled = true);
+            btnStop1.Dispatcher.Invoke(() => btnStop1.IsEnabled = false);
         }
 
         private void Blend2()
@@ -98,6 +110,7 @@ namespace Ex74_ThreadsInWPF
             lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = "Juice Ready");
             btnBlend2.Dispatcher.Invoke(() => btnBlend2.IsEnabled = true);
             btnClean2.Dispatcher.Invoke(() => btnClean2.IsEnabled = true);
+            btnStop2.Dispatcher.Invoke(() => btnStop2.IsEnabled = false);
         }
         private void Clean1()
         {
@@ -108,6 +121,18 @@ namespace Ex74_ThreadsInWPF
         {
             lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = "Cleaned");
             btnClean2.Dispatcher.Invoke(() => btnClean2.IsEnabled = false);
+        }
+        private void Stop1()
+        {
+            continueBlend = false;
+            btnStop1.Dispatcher.Invoke(() => btnStop1.IsEnabled = false);
+            lblStatus1.Dispatcher.Invoke(() => lblStatus1.Content = "Stopped");
+        }
+        private void Stop2()
+        {
+            continueBlend2 = false;
+            btnStop2.Dispatcher.Invoke(() => btnStop2.IsEnabled = false);
+            lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = "Stopped");
         }
     }
 }
