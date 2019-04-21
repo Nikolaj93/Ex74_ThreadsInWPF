@@ -60,7 +60,7 @@ namespace Ex74_ThreadsInWPF
             for (int i = 0; i < blendTime; i++)
             {
                 lblStatus1.Content = $"Blending {i}";
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
             }
             lblStatus1.Content = "Juice Ready";
         }
@@ -71,7 +71,7 @@ namespace Ex74_ThreadsInWPF
             for (int i = 0; i < blendTime; i++)
             {
                 lblStatus2.Content = $"Blending {i}";
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
             }
             lblStatus2.Content = "Juice Ready";
         }
