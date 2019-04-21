@@ -21,6 +21,8 @@ namespace Ex74_ThreadsInWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool continueBlend = true;
+        private bool continueBlend2 = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,34 +48,42 @@ namespace Ex74_ThreadsInWPF
 
         private void BtnBlend1_Click(object sender, RoutedEventArgs e)
         {
-            Blend1();
+            Thread t = new Thread(Blend1);
+            t.Start();
         }
 
         private void BtnBlend2_Click(object sender, RoutedEventArgs e)
         {
-            Blend2();
+            Thread t = new Thread(Blend2);
+            t.Start();
         }
 
         private void Blend1()
         {
+            continueBlend = true;
+            btnBlend1.Dispatcher.Invoke(() => btnBlend1.IsEnabled = false);
             int blendTime = 10;
             for (int i = 0; i < blendTime; i++)
             {
-                lblStatus1.Content = $"Blending {i}";
-                //Thread.Sleep(1000);
+                lblStatus1.Dispatcher.Invoke(() => lblStatus1.Content = $"Blending {i}");
+                Thread.Sleep(1000);
             }
-            lblStatus1.Content = "Juice Ready";
+            lblStatus1.Dispatcher.Invoke(() => lblStatus1.Content = "Juice Ready");
+            btnBlend1.Dispatcher.Invoke(() => btnBlend1.IsEnabled = true);
         }
 
         private void Blend2()
         {
+            continueBlend = true;
+            btnBlend1.Dispatcher.Invoke(() => btnBlend2.IsEnabled = false);
             int blendTime = 10;
             for (int i = 0; i < blendTime; i++)
             {
-                lblStatus2.Content = $"Blending {i}";
-                //Thread.Sleep(1000);
+                lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = $"Blending {i}");
+                Thread.Sleep(1000);
             }
-            lblStatus2.Content = "Juice Ready";
+            lblStatus2.Dispatcher.Invoke(() => lblStatus2.Content = "Juice Ready");
+            btnBlend2.Dispatcher.Invoke(() => btnBlend2.IsEnabled = true);
         }
     }
 }
